@@ -1,5 +1,5 @@
 //externo
-const minimist = require("minimist");
+const minimist = require("minimist");//ajuda a ler argumentos
 
 
 //interno
