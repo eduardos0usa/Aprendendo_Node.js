@@ -13,6 +13,6 @@ const chalk = require("chalk")
             console.log(chalk.bgRed(`Reprovado!Com a média ${media}`))
         }
         
-        readline.close() //para a execução 
+        readline.close() //parar a execução 
     })
    
