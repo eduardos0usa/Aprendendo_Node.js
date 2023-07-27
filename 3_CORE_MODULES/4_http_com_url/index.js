@@ -4,7 +4,7 @@ const http = require('http')
 const port = 3000
 
 const server = http.createServer((req,res)=>{
-    const urlInfo = require('url').parse(req.url,true) // url vem decomposta 
+    const urlInfo = require('url').parse(req.url,true) // url vem decomposta  -parsear a url que vem pela requisição
     const name = urlInfo.query.name //pega a url e consulta ou solicita ou busca o name
 
     res.statusCode = 200
