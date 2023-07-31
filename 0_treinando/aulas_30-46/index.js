@@ -25,7 +25,7 @@ const server = http.createServer((req,res)=>{
             if (err) {
                 console.error('Erro:', err);
             }
-            res.writeHead(302, {
+            res.writeHead(302, { //1- status code 2- tipo de dado retornado
                 Location: '/'
             });
             return res.end();
