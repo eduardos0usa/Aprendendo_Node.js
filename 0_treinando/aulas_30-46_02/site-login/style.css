@@ -1,0 +1,126 @@
+body{
+    background-color: #8a05be;
+}
+.menu-logo img{ 
+     margin-top: -20px;
+     width: 200px;
+}
+.login1{
+    width: 440px;
+    height: 570px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    justify-content: center;
+    margin: auto;  
+    }
+.login1 h2{
+    justify-content: center;
+    margin-top: 70px;
+    font: normal 23px sans-serif; 
+    color: rgb(37, 37, 37);
+    display: flex;
+    justify-content: center;
+}
+.usercpf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.usercpf input{
+    width:350px;
+    
+}
+.usersenha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.usersenha input{
+    width:350px;
+}
+.input{
+    padding: 10px;
+    border-radius: 2px;
+    outline: none;
+    color: #444444;
+     border: 1px solid orangered;
+}
+.placeholder{
+    position:absolute;
+    top: 205px; 
+    left: 50px; 
+    font-size: 14px;
+    padding: 0px 5px;
+    color: orangered;
+    transition: 0.3s;
+    pointer-events: none;
+    font: normal 15px sans-serif; 
+}
+.input:focus + .placeholder, .input:not(:placeholder-shown)+.placeholder{
+    top: 185px;
+    background-color: #ffffff;
+}
+.input:focus{
+    border-color: #8a05be;
+    /* transform: rotate(border 2s); */
+    
+}
+
+.inputa{
+    padding: 10px;
+    border-radius: 2px;
+    outline: none;
+    color: #444444;
+    border: 1px solid orangered;
+}
+.placeholderr{
+    position:absolute;
+    top: 293px; 
+    left: 50px; 
+    font-size: 14px;
+    padding: 0px 5px;
+    color: orangered;
+    transition: 0.3s;
+    pointer-events: none;
+    font: normal 15px sans-serif; 
+}
+.inputa:focus + .placeholderr, .inputa:not(:placeholder-shown)+.placeholderr{
+    top: 273px;
+    background-color: #ffffff;
+}
+.inputa:focus{
+    border-color: #8a05be;
+    /* transform: rotate(border 2s); */
+    
+}
+.continue{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.continue input{
+    width: 340px;
+    height: 70px;
+    border: solid 1px #8a05be; 
+    border-radius: 5px;
+    font: normal arial 20px;
+    color: #8a05be ; 
+}
+.continue input:hover{
+    background-color: #8a05be;
+    color: #ffffff;
+    cursor: pointer;
+} 
+.esqsenh a{
+    font: normal 16px sans-serif ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    text-decoration: none;
+}
