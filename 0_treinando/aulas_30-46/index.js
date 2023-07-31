@@ -20,7 +20,7 @@ const server = http.createServer((req,res)=>{
                 return res.end()
         })
     }else{
-        const fileContent = `Name: ${name}, Idade: ${idade}, CPF: ${cpf}\n`;
+        const fileContent = `Nome: ${name}, Idade: ${idade}, CPF: ${cpf}\n`;
         fs.writeFile('arquivo.txt', fileContent, (err) => {
             if (err) {
                 console.error('Erro:', err);
