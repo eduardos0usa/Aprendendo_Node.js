@@ -10,8 +10,9 @@ const urlInfo = require("url").parse(req.url,true)
 const name = urlInfo.query.name
 
 if(!name){
-    fs.readFileSync('index.html',(err,data)=>{
-        res.writeHead(200,{'Contenty-Type':'text/html'})
+    fs.readFile('index.html',(err,data)=>{
+        res.writeHead(200,
+            {'Contenty-Type':'text/html'})
         res.write(data)
         return res.end()
     })
