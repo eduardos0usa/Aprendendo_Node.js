@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login-Nobunk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/download.png" >
+</head>
+<body>
+    <div class="menu-logo">
+        
+        <a href="https://nubank.com.br/">
+            <img src="images/logo-nubank-roxo-icon-256.png" alt="Logo Nubank">
+        </a>
+</div>
+    
+    <div class="login1">
+        <div>
+            <h2><!-- <strong> -->Faça seu login<!-- </strong> --></h2>
+        </div>
+
+        <form action="../" method="get">
+            <div class="usercpf">
+                <input type="text" name="cpf" id="cpf" placeholder=" " class="input" maxlength="14" minlength="14" onkeypress="return apenasNumeros(event)"/>
+                <label class="placeholder">CPF</label>
+            </div>
+            <div class="usersenha">
+                <input type="password" name="senha" id="senha" placeholder=" " class="inputa" autocomplete="off"> 
+                <label class="placeholderr">Senha</label>
+            </div>
+            <div class="continue">
+                <input type="submit" value="CONTINUAR" id="botao" >
+            </div>
+            <div class="esqsenh">
+                <a href="https://nubank.com.br/">Esqueci minha senha ></a>
+            </div>
+        </form>
+            
+    </div>
+   
+    <script src="script.js"></script>
+</body>
+</html>
