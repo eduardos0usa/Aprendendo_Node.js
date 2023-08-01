@@ -39,10 +39,15 @@ server.listen(port,()=>{
 /* Parâmetros: Este método aceita quatro parâmetros conforme mencionado acima e descrito abaixo:
 
 arquivo: É uma string, Buffer, URL ou inteiro de descrição de arquivo que indica o caminho do arquivo onde deve ser escrito. Usar um descritor de arquivo fará com que ele se comporte de maneira semelhante ao método fs.write().
+
 data: É uma string, Buffer, TypedArray ou DataView que será gravada no arquivo.
-options: É uma string ou objeto que pode ser usado para especificar parâmetros opcionais que afetarão a saída. Possui três parâmetros opcionais:
+
+options: É uma string ou objeto que pode ser usado para especificar parâmetros opcionais que afetarão a saída.
+ Possui três parâmetros opcionais:
 codificação: é um valor de string que especifica a codificação do arquivo. O valor padrão é 'utf8'.
+
 modo: é um valor inteiro que especifica o modo do arquivo. O valor padrão é 0o666.
+
 sinalizador: é um valor de string que especifica o sinalizador usado ao gravar no arquivo. O valor padrão é 'w'.
 callback: É a função que seria chamada quando o método fosse executado.
 err: É um erro que seria lançado se a operação falhar. */
