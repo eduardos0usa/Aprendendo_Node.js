@@ -14,8 +14,8 @@ const server = http.createServer((req,res)=>{
             res.end()
         })
     }else{
-        const contentName = `Usuário:${name} \r\n` //\r\n quebram linha
-        fs.appendFile('arquivo.txt',contentName,(err,data)=>{//append = acrescentar
+        const contentName = `Usuário:${name} \r\n` //\r\n
+        fs.appendFile('arquivo.txt',contentName,(err,data)=>{
             if(err){
                 console.log(`Erro:${err}`)
             }
@@ -25,7 +25,7 @@ const server = http.createServer((req,res)=>{
             return res.end()
         })
     }
-
+    
 })
 server.listen(port,()=>{
     console.log(`Servidor rodando na porta ${port}`)
