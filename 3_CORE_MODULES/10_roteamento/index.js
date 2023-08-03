@@ -6,7 +6,7 @@ const port = 3000
 
 const server = http.createServer((req,res)=>{
     const q = url.parse(req.url,true)
-    const filename = q.pathname.substring(1) //pathname = é uma string contendo o caminho da URL para o local||é passada o nome do arquivo que deseja ser acessado pela url pegando apenas o objeto 2 de indice 1
+    const filename = q.pathname.substring(1) //pathname = é uma string contendo o caminho da URL para o local||é passada o nome do arquivo que deseja ser acessado pela url 
 
     if( filename.includes('html') ){
         if(fs.existsSync(filename)){
