@@ -18,6 +18,7 @@ function operation(){
                 'Consultar saldo',
                 'Depositar',
                 'Sacar',
+                'Transferência',
                 'Sair',
             ],
         },
@@ -41,6 +42,10 @@ function operation(){
         }else if( action === "Sacar" ){
 
             saq()
+
+        }else if( action === "Transferência" ){
+
+            transfer()
 
         }else if( action === "Sair" ){
 
@@ -261,7 +266,99 @@ function amountSaq(accountName){
         remove(accountName,amount)
         
         
-        //sacando
 
     }).catch((err)=>console.log(err))
 }
+
+//transferência:
+
+function transfer(){
+    inquirer.prompt([{
+        name:'accountName',
+        message:'Digite o nome da sua conta:'
+    }]).then((answers)=>{
+        const accountName = answers['accountName']
+
+        if(!checkAccount(accountName)){
+            return transfer()
+        }
+
+        transferGo(accountName,);
+        
+
+
+    })
+    .catch((err)=>console.log(err))
+}
+
+function transferGo(accountName){
+
+    inquirer.prompt([{
+        name:'accountNameGo',
+        message:'Digite o nome da conta que você deseja transferir:'
+    }]).then((answers)=>{
+
+        const accountNameGo = answers['accountNameGo']
+        const accountTransfer = getAccount(accountName) //account transfer
+        const accountReceive = getAccount(accountNameGo) //account receive
+
+        if(!checkAccount(accountNameGo)){
+            return transferGo(accountName)
+        }
+
+        amountTransfer(accountName,accountNameGo,accountTransfer,accountReceive)
+
+    })
+    .catch((err)=>console.log(err))
+
+}
+
+function amountTransfer(accountName,accountNameGo,accountTransfer,accountReceive){
+
+    inquirer.prompt([{
+        name:'amount',
+        message:'Digite quanto você deseja transferir:'
+    }]).then((answers)=>{
+
+        const amount = answers['amount']
+
+        if(!amount){
+
+            console.log(chalk.bgRed.bold.black('Ocorreu um erro inesperado,tente novamente!'))
+            return amountTransfer()
+        }
+
+        if( amount > accountTransfer.balance ){
+            const saldo = formatMoed(accountTransfer.balance)
+    
+            console.log(chalk.bgRed.bold.black(`Ocorreu um erro, seu saldo não é suficiente, você possui guardado ${saldo}, tente novamente!`))
+
+            return amountTransfer(accountName,accountNameGo,accountTransfer,accountReceive)
+        }
+
+        accountTransfer.balance = parseFloat(accountTransfer.balance) - parseFloat(amount)
+        accountReceive.balance = parseFloat(accountReceive.balance) + parseFloat(amount)
+
+        fs.writeFileSync(`accounts/${accountName}.json`,
+            JSON.stringify(accountTransfer),
+            function (err){
+            console.log(err)
+        },
+        )
+
+        fs.writeFileSync(`accounts/${accountNameGo}.json`,
+            JSON.stringify(accountReceive),
+            function (err){
+            console.log(err)
+        },
+        )
+
+        console.log(chalk.bgGreen.black(`Foi realizada uma transferência de ${formatMoed(parseFloat(amount))} de ${accountName} para ${accountNameGo}.` ))
+
+        return operation()
+
+
+    })
+    .catch((err)=>console.log(err))
+}
+
