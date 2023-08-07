@@ -222,7 +222,6 @@ function remove(accountName,amount){
 
     if( amount > account.balance ){
         const saldo = formatMoed(account.balance)
-        
 
         console.log(chalk.bgRed.bold.black(`Ocorreu um erro, seu saldo não é suficiente, você possui guardado ${saldo}, tente novamente!`))
         return amountSaq(accountName,amount)
@@ -238,8 +237,14 @@ function remove(accountName,amount){
     },
     )
 
-    console.log(chalk.green(`Foi sacado o valor de ${saq} na sua conta!`))
-    return operation()
+    setTimeout(()=>{
+        console.log(chalk.green(`Foi sacado o valor de ${saq} na sua conta!`))
+    },2000)
+
+    setTimeout(()=>{
+        return operation()
+    },2009)
+    
 }
 
 function amountSaq(accountName){
