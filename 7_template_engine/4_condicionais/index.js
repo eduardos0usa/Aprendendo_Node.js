@@ -15,8 +15,9 @@ app.get('/',(req,res)=>{
         surname:"Sousa",
     }
     const auth = true
+    const approved = false
 
-    res.render('home',{ user : user,auth })
+    res.render('home',{ user : user,auth,approved })
 })
 
 app.listen(3000,()=>{
